@@ -26,12 +26,20 @@ namespace Enverus.VWAPService
                 MessageBox.Show("You must enter a symbol to request trading data!", "Symbol empty error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            List<TradingData> tradingDatas = await Controller.GetInstance().GetTradingDataAsync(symbolTxt.Text);
-            
+            try
+            {
+                List<TradingData> tradingDatas = await Controller.GetInstance().GetTradingDataAsync(symbolTxt.Text);
+                tradingDataListBox.DataSource = null;
+                tradingDataListBox.DataSource = tradingDatas;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Incorrect symbol, please type in a valid symbol", "Symbol error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
 
             
-            tradingDataListBox.DataSource = null;
-            tradingDataListBox.DataSource = tradingDatas;
         }
     }
 }

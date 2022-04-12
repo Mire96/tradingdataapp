@@ -14,6 +14,7 @@ namespace Enverus.VWAPService.Models
         public double low { get; set; }
         public double close { get; set; }
         public double volume { get; set; }
+        public double vwap { get; set; }
 
         public TradingData(DateTime tradedatetimegmt, double open, double high, double low, double close, double volume)
         {
@@ -25,9 +26,11 @@ namespace Enverus.VWAPService.Models
             this.volume = volume;
         }
 
+        
+
         public override string ToString()
         {
-            return $"{tradedatetimegmt}/{open}/{high}/{low}/{close}/{volume}!";
+            return $"Date: {tradedatetimegmt} / Open: {open} / High: {high} / Low: {low} / Close: {close} / Volume: {volume} \nVWAP: {vwap}";
         }
     }
 }

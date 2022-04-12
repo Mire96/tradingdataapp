@@ -53,7 +53,7 @@ namespace Enverus.VWAPService
             // 
             // sendRequestBtn
             // 
-            this.sendRequestBtn.Location = new System.Drawing.Point(533, 26);
+            this.sendRequestBtn.Location = new System.Drawing.Point(427, 25);
             this.sendRequestBtn.Name = "sendRequestBtn";
             this.sendRequestBtn.Size = new System.Drawing.Size(127, 29);
             this.sendRequestBtn.TabIndex = 2;
@@ -67,14 +67,14 @@ namespace Enverus.VWAPService
             this.tradingDataListBox.ItemHeight = 20;
             this.tradingDataListBox.Location = new System.Drawing.Point(55, 91);
             this.tradingDataListBox.Name = "tradingDataListBox";
-            this.tradingDataListBox.Size = new System.Drawing.Size(605, 304);
+            this.tradingDataListBox.Size = new System.Drawing.Size(1054, 304);
             this.tradingDataListBox.TabIndex = 3;
             // 
             // EnverusVWAPForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 457);
             this.Controls.Add(this.tradingDataListBox);
             this.Controls.Add(this.sendRequestBtn);
             this.Controls.Add(this.symbolTxt);
