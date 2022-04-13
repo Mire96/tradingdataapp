@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Enverus.VWAPService.Models
 {
+
+    //Class for consuming JSON from request
     public class TradingData
     {
         public DateTime tradedatetimegmt { get; set; }
