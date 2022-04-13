@@ -21,25 +21,33 @@ namespace Enverus.VWAPService
 
         private async void sendRequestBtn_ClickAsync(object sender, EventArgs e)
         {
+            tradingDataListBox.DataSource = null;
+            spinnerPic.Visible = true;
+            sendRequestBtn.Enabled = false;
+
             if(symbolTxt.Text == "" || symbolTxt.Text == null)
             {
                 MessageBox.Show("You must enter a symbol to request trading data!", "Symbol empty error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                spinnerPic.Visible = false;
+                sendRequestBtn.Enabled = true;
                 return;
             }
             try
             {
                 List<TradingData> tradingDatas = await Controller.GetInstance().GetTradingDataAsync(symbolTxt.Text);
-                tradingDataListBox.DataSource = null;
+                
                 tradingDataListBox.DataSource = tradingDatas;
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Incorrect symbol, please type in a valid symbol", "Symbol error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message + "Incorrect symbol, please type in a valid symbol", "Symbol error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            spinnerPic.Visible = false;
+            sendRequestBtn.Enabled = true;
 
 
 
-            
         }
     }
 }

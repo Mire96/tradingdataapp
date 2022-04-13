@@ -20,7 +20,7 @@ namespace Enverus.VWAPService.APIConnection
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    JsonData jsonData = await response.Content.ReadAsAsync<JsonData>();
+                    JsonData jsonData =  await response.Content.ReadAsAsync<JsonData>();
 
                     List<TradingData> tradingDatas = jsonData.results.items;
                     return tradingDatas;

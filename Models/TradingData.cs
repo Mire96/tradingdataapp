@@ -16,6 +16,11 @@ namespace Enverus.VWAPService.Models
         public double volume { get; set; }
         public double vwap { get; set; }
 
+        //Text formating property
+        public int space { get; set; }
+
+
+
         public TradingData(DateTime tradedatetimegmt, double open, double high, double low, double close, double volume)
         {
             this.tradedatetimegmt = tradedatetimegmt;
@@ -24,13 +29,17 @@ namespace Enverus.VWAPService.Models
             this.low = low;
             this.close = close;
             this.volume = volume;
+            space = 8;
         }
 
-        
+
 
         public override string ToString()
         {
-            return $"Date: {tradedatetimegmt} / Open: {open} / High: {high} / Low: {low} / Close: {close} / Volume: {volume} \nVWAP: {vwap}";
+            return String.Format($"{{0,-{space} }} | {{1,-{space} }} | {{2,-{space} }} | {{3,-{space} }} | {{4,-{space} }} | {{5,-{space} }} | {{6,-{space} }}",
+                tradedatetimegmt, open, high, low, close, volume, vwap);
+        
+        
         }
     }
 }
